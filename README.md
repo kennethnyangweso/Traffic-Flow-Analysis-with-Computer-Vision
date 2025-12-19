@@ -1,125 +1,77 @@
-# Traffic-Flow-Analysis-with-Computer-Vision
-# Business Understanding
+# 🚦 Traffic Flow Analysis with Computer Vision
 
-## Project Overview
+![Status](https://img.shields.io/badge/Status-Active-blue)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Computer%20Vision](https://img.shields.io/badge/Computer_Vision-OpenCV-orange)
+![Object%20Detection](https://img.shields.io/badge/Object_Detection-YOLOv5-red)
+![License](https://img.shields.io/badge/License-BSD--3--Clause-green)
 
-This project aims to develop a computer vision-based system for analyzing traffic flow at city intersections using video footage. By leveraging modern object detection and tracking techniques, the system will automatically identify and classify vehicles, quantify traffic flow patterns, and generate actionable data to inform city planning, traffic management, and public safety initiatives. The insights generated will be useful for city authorities, transportation planners, and other stakeholders seeking to optimize intersection operations and urban mobility.
+This project develops a **computer vision-based system for analyzing traffic flow** using images and video. By detecting and classifying vehicles in frames, it generates traffic insights useful for city planning and traffic management.
 
-## 1. Problem Statement
+---
 
-Urban intersections frequently experience unpredictable and heavy traffic, resulting in congestion, increased travel times, and a higher risk of accidents. City authorities often lack real-time, detailed, and actionable data that would enable them to optimize traffic management, plan infrastructure upgrades, and enhance road safety. Traditional manual counting and sensor-based approaches are expensive, labor-intensive, or limited in scope.
+## 📌 Project Overview
+Urban traffic analysis is essential for reducing congestion and improving road safety. Traditional monitoring is manual and costly. This project automates vehicle detection and traffic quantification using **YOLO-based object detection** and Python computer vision techniques.
 
-## 2. Project Objectives
+---
 
-- Automatically detect and classify vehicles (cars, buses, trucks, motorcycles, etc.) in video footage from city intersections using computer vision.
-- Quantify traffic flow patterns, including vehicle counts, types, and movement directions over time.
-- Generate actionable reports and visualizations to support data-driven decisions by city planners and transportation authorities.
+## 🎯 Objectives
+- Detect and classify vehicles (cars, buses, trucks, motorcycles)  
+- Count vehicles per frame to analyze traffic flow  
+- Provide visualizations and statistics for traffic insights  
+- Create a foundation for real-time or batch traffic analysis
 
-## 3. Stakeholders
+---
 
-- City traffic managers and urban planners  
-- Public transportation authorities  
-- Urban infrastructure developers  
-- Law enforcement agencies  
-- Policy makers and government agencies
+## 📁 Dataset & Inputs
+- **Image Data:** Collected from city intersections  
+- **Annotations:** Bounding boxes and labels for vehicle types  
+- **Challenges:** Variable lighting, angle, and occlusion; imbalanced classes  
 
-## 4. Business Value / Expected Impact
+---
 
-- Enable data-driven decisions for traffic signal optimization and congestion reduction.
-- Improve road safety by identifying high-risk intersections or times.
-- Support better investment in urban infrastructure by providing evidence-based insights.
-- Reduce manual labor and operational costs associated with traditional traffic monitoring methods.
+## 🧠 Computer Vision Approach
+1. **Object Detection (YOLOv5)** – Detects vehicles per frame  
+2. **Vehicle Classification** – Assigns vehicle type labels  
+3. **Traffic Metrics Extraction** – Counts vehicles per frame  
+4. *(Optional: Future tracking with DeepSORT/ByteTrack for multi-frame analysis)*
 
-## 5. Success Criteria
+---
 
-- Achieve high accuracy in vehicle detection and classification (e.g., >90% detection accuracy on test data).
-- Successfully analyze and report on traffic flow patterns for selected intersections.
-- Deliver actionable insights or reports that are validated as useful by at least one stakeholder group.
-- Provide visualizations and summary statistics that are clear, interpretable, and directly inform decision-making.
+## 📊 Exploratory Data Analysis (EDA)
+Although the notebook is too large to host, the EDA performed includes:  
+- Checking class distributions and image quality  
+- Inspecting annotations for accuracy  
+- Visualizing sample frames and bounding boxes  
+- Analyzing feature distributions such as vehicle types and traffic volume
 
-# Data Understanding
-## 1. Data Sources
+### 📊Visuals  
 
-The primary dataset consists of images collected from city intersections, stored in the `valid` folder of the project repository. These images are intended for training and validating computer vision models for vehicle detection and traffic flow analysis.
+<img width="631" height="409" alt="image" src="https://github.com/user-attachments/assets/871efd81-13f5-47df-b9c2-b2f691ecbcdf" />
 
-## 2. Data Structure & Format
+<img width="704" height="531" alt="image" src="https://github.com/user-attachments/assets/c3007f59-ad74-4520-92a7-a9343eee6fb2" />
 
-- **Image Files:**  
-  - Format: `.jpg`
-  
--
-## 3. Initial Data Exploration
 
-- **Sample visualization:**  
-  A subset of images was visualized to verify image quality and content. The images depict urban intersections with varying lighting and weather conditions, featuring multiple vehicle types.
+**Insights:**  
+- Common classes like cars and vans dominate, creating class imbalance  
+- Lighting and occlusion affect detection accuracy  
+- Traffic patterns can be approximated using counts per frame
 
-- **Potential Issues:**  
-  - Some images may be blurry, poorly lit, or partially obstructed.
-  - There may be class imbalance (e.g., more cars than buses or motorcycles).
-  - Annotation coverage and accuracy will need to be verified.
+---
 
-## 4. Data Quality Assessment
+## 🛠️ Model approach 
 
-- **Missing Data:**  
-  (State if any images or annotation files are missing or mismatched.)
-- **Consistency:**  
-  (Note any inconsistencies in file naming or annotation format.)
+Model used was the YOLOv5 model
 
-## 5. Next Steps
+### Results and Outcomes 
 
-- Explore and visualize more images to better understand scene variability.
-- Analyze annotation files to confirm class distribution and annotation quality.
-- Identify and address any data quality issues before proceeding to model development.
+<img width="640" height="640" alt="image" src="https://github.com/user-attachments/assets/8d04a968-5452-44d4-b37c-8cd60e034ea4" />
 
-## Exploring the Images
+<img width="640" height="640" alt="image" src="https://github.com/user-attachments/assets/deba3c8c-d333-41b1-b7dc-378d14e2ad3e" />
 
-![image](https://github.com/user-attachments/assets/e82a01a2-2d54-4fe6-bfd9-b9cab629fed0)
+<img width="640" height="640" alt="image" src="https://github.com/user-attachments/assets/9b16db2d-a206-4210-8aee-0426c6ccf4c7" />
 
-![image](https://github.com/user-attachments/assets/55fbd9c4-e5bc-4913-86d6-bb1e28267cd7)
-
-![image](https://github.com/user-attachments/assets/9acb1bbc-eead-49cf-8744-929e519b878c)
-
-# Exploratory Data Analysis
-
-## Class Distribution
-
-![image](https://github.com/user-attachments/assets/559ba315-96e4-4819-931b-3eea3a0da7cb)
-
-*Observations**
-
-Based on the class distribution bar chart:
-
-1. **High Class Imbalance**
-   - The dataset is overwhelmingly dominated by the "car" class, which has a significantly higher count than all other vehicle classes.
-
-2. **Underrepresented Classes**
-   - Classes such as "van" and "motorcycle" are present in much fewer numbers compared to "car".
-   - "truck", "jeepney", and "bus" are severely underrepresented, each appearing rarely in the dataset.
-
-3. **Potential Issues for Model Training**
-   - The substantial class imbalance may lead to a model that is biased towards detecting cars, while struggling to accurately detect less common classes.
-   - Underrepresented classes may suffer from poor recall and precision, impacting the overall effectiveness of multi-class vehicle detection.
-
-4. **Diversity of Data**
-   - While the dataset contains multiple vehicle types, its usefulness for tasks that require balanced detection across all classes (e.g., traffic flow analysis by vehicle type) may be limited unless the class imbalance is addressed.
-
-# Modeling with YOLOv5
-
-## Results and Outcomes
-
-![image](https://github.com/user-attachments/assets/806e8df1-59fd-47d8-917f-33e2f9d7d696)
-
-![image](https://github.com/user-attachments/assets/9ae32723-749c-4503-a775-fc60bb6adf80)
-
-![image](https://github.com/user-attachments/assets/5fcef546-bc81-4c4e-882e-6fb9f966d8c0)
-
-![image](https://github.com/user-attachments/assets/648a2600-0bc4-4884-9f80-1f0618a53f7c)
-
-![image](https://github.com/user-attachments/assets/8dd908a5-047c-4f3e-b95c-ae4e4020bd95)
-
-![image](https://github.com/user-attachments/assets/5e7cb611-540e-4035-b864-62a2b64826d8)
-
-# Conclusions
+## 📦 Conclusions
 
 1. YOLOv5 is effective for real-time vehicle detection.
 - The model accurately detects and classifies multiple vehicle types, including cars, trucks, and motorcycles, making it well-suited for traffic monitoring tasks.
@@ -130,29 +82,11 @@ Based on the class distribution bar chart:
 3. Model generalizes well to standard traffic images.
 - Even without custom training, the pretrained model performs well on common traffic scenarios, suggesting strong generalizability to similar environments.
 
-4. Vehicle counts and classes can be extracted for traffic statistics.
-- The per-image or per-frame vehicle counts give immediate insight into traffic density, which can be used to infer congestion or flow patterns.
 
-5. The detection pipeline is now deployment-ready.
+## 🏗️ Usage
+Since the notebook is large, it is **not included in the repository**. To run the analysis locally:
 
-- The trained model (yolov5su.pt) can be used in local applications like Streamlit dashboards or integrated into APIs for edge deployment.
-
-# Recommendations
-
-1. Automate vehicle counting over batches or live video.
-Extend the image-based detection pipeline to process entire videos or streams for hourly/daily traffic flow analytics.
-
-2. Integrate Deep SORT or BYTETrack for vehicle tracking.
-Assign unique IDs to each vehicle to enable movement tracking, line crossing detection, and speed estimation.
-
-3. Collect and analyze detection logs.
-Save vehicle types, counts, and timestamps in a CSV or database to track long-term trends and patterns.
-
-4. Enhance the UI with Streamlit or Dash.
-Create an interactive interface where users can upload footage, view detections, and explore traffic metrics visually.
-
-5. Train a custom model (optional but valuable).
-If your traffic environment differs significantly (e.g., local signage, camera angles), retrain YOLOv5 on custom annotated data for even better accuracy.
-
-6. Consider edge deployment for real-time field use.
-With optimization (e.g., ONNX, TensorRT), deploy the model to edge devices like Jetson Nano, Raspberry Pi, or surveillance units for real-time monitoring.
+1. Clone the repository  
+```bash
+git clone https://github.com/kennethnyangweso/Traffic-Flow-Analysis-with-Computer-Vision.git
+itoring.
