@@ -86,7 +86,12 @@ Model used was the YOLOv5 model
 ## 🏗️ Usage
 Since the notebook is large, it is **not included in the repository**. To run the analysis locally:
 
-1. Clone the repository  
-```bash
-git clone https://github.com/kennethnyangweso/Traffic-Flow-Analysis-with-Computer-Vision.git
-itoring.
+1. Clone the repository
+   
+       git clone https://github.com/kennethnyangweso/Traffic-Flow-Analysis-with-Computer-Vision
+
+## **👤 Author**
+
+**Kenneth Nyangweso**
+
+**Data Scientist | Electrical & Telecommunications Engineer**
